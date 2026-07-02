@@ -19,7 +19,6 @@
 
 ''' Test2'''
 # from utils.image_io import *
-
 # img = loadImage("data/screen/test.png")
 # print("Loaded:", img.shape)
 # img = resizeImage(img)
@@ -46,10 +45,20 @@
 # saveImage(blur, "outputs/blur.png")
 
 '''Testing frequency'''
+# from utils.image_io import *
+# from evidence.frequency import *
+# img = getResizedImage("data/screen/test.png")
+# gray = getGray(img)
+# result = freqE(gray)
+# print(result)
 
+'''testing geometry'''
 from utils.image_io import *
-from evidence.frequency import *
+from evidence.geometry import geometryEvidence
+from evidence.focus import focusEvidence
 img = getResizedImage("data/screen/test.png")
 gray = getGray(img)
-result = freqE(gray)
-print(result)
+print("\nGeometry")
+print(geometryEvidence(gray))
+print("\nFocus")
+print(focusEvidence(gray))
