@@ -36,7 +36,6 @@ from __future__ import annotations
 import sys
 from fusion.classifier import ScreenClassifier
 from fusion.features import extractAll
-from fusion.confidence import combineConfidence
 from utils.image_io import loadImage
 
 from pathlib import Path
@@ -51,9 +50,7 @@ def predict(imagePath: str) -> float:
 
     features, evidence = extractAll(img)
     probability = classifier.predict(features)
-    score = combineConfidence(probability, evidence,)
-
-    return score
+    return probability
 
 def main():
     if len(sys.argv) != 2:

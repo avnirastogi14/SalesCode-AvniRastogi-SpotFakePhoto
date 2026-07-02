@@ -5,16 +5,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-validfiles = {
-    ".jpg",
-    ".jpeg",
-    ".png",
-    ".bmp",
-    ".tiff",
-    ".tif",
-    ".webp",
-}
-
+validfiles = {".jpg", ".jpeg", ".png", ".bmp", ".tiff", ".tif", ".webp",}
 
 def checkFile(path: str | Path) -> bool:
     # Check if the file has a supported image extension.
