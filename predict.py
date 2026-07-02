@@ -1,7 +1,8 @@
 from __future__ import annotations
 import sys
 from fusion.classifier import ScreenClassifier
-from fusion.features import extractFeatures
+from fusion.features import extractFeatures, extractEvidence
+from fusion.confidence import combineConfidence
 from utils.image_io import loadImage
 
 MODEL_PATH = "model/classifier.pkl"
@@ -11,8 +12,11 @@ def predict(imagePath: str) -> float:
     features = extractFeatures(img)
     classifier = ScreenClassifier()
     classifier.load(MODEL_PATH)
+    evidence = extractEvidence(img)
     probability = classifier.predict(features)
-    return float(probability)
+    score = combineConfidence(probability, evidence,)
+
+    return score
 
 def main():
     if len(sys.argv) != 2:
