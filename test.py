@@ -16,3 +16,40 @@
 # img = getResizedImage("data/screen/test.png")
 # gray = getGray(img)
 # saveImage(gray, "outputs/gray.png")
+
+''' Test2'''
+# from utils.image_io import *
+
+# img = loadImage("data/screen/test.png")
+# print("Loaded:", img.shape)
+# img = resizeImage(img)
+# print("Resized:", img.shape)
+# gray = getGray(img)
+# print("Gray:", gray.shape)
+# rgb = getRGB(img)
+# print("RGB:", rgb.shape)
+# saveImage(gray, "outputs/gray.jpg")
+# print("Done")
+
+''' Testing Preprocessing Functions '''
+# from utils.image_io import *
+# from utils.preprocessing import *
+# img = getResizedImage("data/screen/test.png")
+# gray = getGray(img)
+# eq = equalizeHistogram(gray)
+# blur = gaussianBlur(gray)
+# patches = splitPatches(gray)
+# print("Patches:", len(patches))
+# print("Entropy:", imageEntropy(gray))
+# print("Contrast:", imageContrast(gray))
+# saveImage(eq, "outputs/equalized.png")
+# saveImage(blur, "outputs/blur.png")
+
+'''Testing frequency'''
+
+from utils.image_io import *
+from evidence.frequency import *
+img = getResizedImage("data/screen/test.png")
+gray = getGray(img)
+result = freqE(gray)
+print(result)
