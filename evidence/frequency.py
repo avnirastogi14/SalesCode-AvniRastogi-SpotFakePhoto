@@ -65,10 +65,7 @@ def midFrequencyRatio(magnitude: np.ndarray,) -> float:
 
     return float(mid/(low + high + 1e-6))
 
-
-def radialE(magnitude: np.ndarray, bins: int = 25,) -> np.ndarray:
-    # FFT's radial energy distribution
-
+def radialE(magnitude: np.ndarray, bins: int = 25,) -> np.ndarray: # FFT's radial energy distribution.
     h, w = magnitude.shape
 
     cy = h // 2
@@ -77,16 +74,15 @@ def radialE(magnitude: np.ndarray, bins: int = 25,) -> np.ndarray:
     y, x = np.indices((h, w))
 
     rad = np.sqrt((x - cx) ** 2 + (y - cy) ** 2)
-    rad = rad.astype(np.int32)
     rMaxi = rad.max()
-    e = np.zeros(rMaxi + 1)
-
-    for r in range(rMaxi + 1):
-        mask = rad == r
+    edges = np.linspace(0, rMaxi, bins + 1,)
+    energy = np.zeros(bins)
+    for i in range(bins):
+        mask = ((rad >= edges[i]) & (rad < edges[i + 1]))
         if np.any(mask):
-            e[r] = magnitude[mask].mean()
+            energy[i] = magnitude[mask].mean()
 
-    return e
+    return energy
 
 
 def harmonicCount(magnitude: np.ndarray,) -> int:

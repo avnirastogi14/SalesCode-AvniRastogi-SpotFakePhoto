@@ -53,12 +53,31 @@
 # print(result)
 
 '''testing geometry'''
-from utils.image_io import *
-from evidence.geometry import geometryEvidence
-from evidence.focus import focusEvidence
-img = getResizedImage("data/screen/test.png")
-gray = getGray(img)
-print("\nGeometry")
-print(geometryEvidence(gray))
-print("\nFocus")
-print(focusEvidence(gray))
+# from utils.image_io import *
+# from evidence.geometry import geometryEvidence
+# from evidence.focus import focusEvidence
+# img = getResizedImage("data/screen/test.png")
+# gray = getGray(img)
+# print("\nGeometry")
+# print(geometryEvidence(gray))
+# print("\nFocus")
+# print(focusEvidence(gray))
+
+'''testing compression'''
+# from evidence.compression import compressionEvidence
+# from utils.image_io import *
+# img = getResizedImage("data/screen/test.png")
+# gray = getGray(img)
+# print("\nCompression")
+# print(compressionEvidence(gray))
+
+'''testing fusion/fts'''
+# from fusion.features import extractFeatures
+# from evidence.compression import compressionEvidence
+# from utils.image_io import *
+# img = getResizedImage("data/screen/test.png")
+# gray = getGray(img)
+# print("\nFeature Vector")
+# features = extractFeatures(img)
+# print(features)
+# print(features.shape)
