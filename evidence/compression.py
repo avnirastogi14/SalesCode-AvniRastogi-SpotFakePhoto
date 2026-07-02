@@ -40,6 +40,11 @@ def ringingScore(gray: np.ndarray,) -> float: # Estimate ringing around edges.
 
 def dctEnergy(gray: np.ndarray,) -> float: # High-frequency DCT energy.
     img = gray.astype(np.float32)
+    h, w = img.shape
+    if h % 2 == 1:
+        img = img[:-1, :]
+    if w % 2 == 1:
+        img = img[:, :-1]
     dct = cv2.dct(img)
     h, w = dct.shape
     roi = dct[h//2:, w//2:,]
